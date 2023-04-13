@@ -1,4 +1,15 @@
+<style>
+    .navbar {
+        display:flex;
+        color: black;
+        text-underline-offset: unset ;
+    }
+</style>
+<h1>
+    Welcome to the FoodInfo page
+</h1>
 <nav>
+    <div class="navbar">
     {% url 'index' as index_url %}
     <div>{% if request.path == index_url %}Home{% else %}<a href="{{ index_url }}">Home</a>{% endif %}</div>
 
@@ -22,4 +33,5 @@
 
     {% url 'resources' as resources_url %} 
     <div>{% if request.path == resources_url %}External Resources{% else %}<a href="{{ resources_url }}">External Resources</a>{% endif %}</div>
+</div>
 </nav>
