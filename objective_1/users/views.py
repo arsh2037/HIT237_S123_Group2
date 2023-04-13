@@ -22,9 +22,9 @@ def solutions(request):
 
 def resources(request):
     return HttpResponse(loader.get_template('resources.html').render())
-def hello(request):
+def Calindex(request):
     return render(request, 'calculator_app/index.html')
-
+# C:\Users\arshh\OneDrive\Desktop\cloned\HIT237_S123_Group2\objective_1\calculatorApp\templates\calculator_app
 def calculate(request):
     number_of_people=int(request.GET.get('number_of_people'))
     kilos=int(request.GET.get('kilos'))
