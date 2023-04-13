@@ -1,3 +1,6 @@
+
+
+{% extends '__base.html' %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,6 +24,7 @@
     }
   </style>
   <body>
+    {% block content %}
     <div class="titletext">
       <h1 class="titletext">The carbon Imprint for {{ purpose }}</h1>
     </div>
@@ -120,5 +124,6 @@
       integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
       crossorigin="anonymous"
     ></script>
+    {% endblock %}
   </body>
 </html>

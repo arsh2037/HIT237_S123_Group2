@@ -1,3 +1,5 @@
+
+{% extends '__base.html' %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -27,6 +29,7 @@
     </style>
   </head>
   <body>
+    {% block content %}
     <div class="form">
       <h1 class="titledoc">This is a sample food waste calculator</h1>
 
@@ -53,5 +56,6 @@
         <input type="submit" /></div>
       </form>
     </div>
+    {% endblock %}
   </body>
 </html>
