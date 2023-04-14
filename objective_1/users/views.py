@@ -1,6 +1,9 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import render
+from django.views.generic import TemplateView
+
+
 
 def index(request):
     return HttpResponse(loader.get_template('index.html').render())
@@ -24,7 +27,6 @@ def resources(request):
     return HttpResponse(loader.get_template('resources.html').render())
 def Calindex(request):
     return render(request, 'calculator_app/index.html')
-# C:\Users\arshh\OneDrive\Desktop\cloned\HIT237_S123_Group2\objective_1\calculatorApp\templates\calculator_app
 def calculate(request):
     number_of_people=int(request.GET.get('number_of_people'))
     kilos=int(request.GET.get('kilos'))
@@ -38,3 +40,26 @@ def calculate(request):
     params = {'purpose': 'calculated food waste', 'analyzed_text': int(food_Waste)}
 
     return render(request,'calculator_app/analyze.html',params)
+
+def wastage(request):
+    context={
+        'cities':create_wastage()
+    }
+    return render(request,'Impact/info.html',context)
+def create_wastage():
+    Waste=[]
+    Waste.append(str(Info("Perth",3000,"2000 People")))
+    Waste.append(str(Info("Melbourne",54000,"100000 People")))
+    Waste.append(str(Info("Sydney",58000,"120000 People")))
+    Waste.append(str(Info("Darwin",2322,"1200 People")))
+    
+    return Waste
+    
+class Info:
+    def __init__(self,city,wastage,impact):
+        self.city = city
+        self.wastage = wastage
+        self.impact =impact
+    def __str__(self):
+
+        return str(self.city) + ", " + str(self.wastage) + ", " + str(self.impact)
